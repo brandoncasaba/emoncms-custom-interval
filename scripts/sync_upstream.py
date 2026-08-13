@@ -1,3 +1,4 @@
+import json
 from pathlib import Path
 import shutil
 import subprocess
@@ -26,6 +27,11 @@ coordinator.write_text(text.replace(old, new, 1))
 # Required for a custom override and HACS versioning.
 manifest = DEST / "manifest.json"
 manifest_text = manifest.read_text()
-if '"version"' not in manifest_text:
-    manifest_text = manifest_text.rstrip()[:-1] + ',\n  "version": "1.0.0"\n}\n'
-    manifest.write_text(manifest_text)
+manifest_data = json.loads(manifest_text)
+if "version" not in manifest_data:
+    name_line = f'  "name": {json.dumps(manifest_data["name"])},\n'
+    if name_line not in manifest_text:
+        raise RuntimeError("Unable to place the custom integration version.")
+
+    version_line = '  "version": "1.0.0",\n'
+    manifest.write_text(manifest_text.replace(name_line, name_line + version_line, 1))
