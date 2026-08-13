@@ -15,14 +15,17 @@ jobs:
 
     steps:
       - name: Check out custom integration
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
+
+      - name: Ignore upstream checkout
+        run: echo "/.upstream/" >> .git/info/exclude
 
       - name: Check out Home Assistant Core
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           repository: home-assistant/core
           ref: dev
-          path: /tmp/home-assistant-core
+          path: .upstream/home-assistant-core
           sparse-checkout: |
             homeassistant/components/emoncms
           sparse-checkout-cone-mode: true
@@ -32,7 +35,7 @@ jobs:
 
       - name: Record upstream commit
         run: |
-          git -C /tmp/home-assistant-core rev-parse HEAD > UPSTREAM_SHA
+          git -C .upstream/home-assistant-core rev-parse HEAD > UPSTREAM_SHA
 
       - name: Validate files
         run: |
@@ -42,7 +45,7 @@ jobs:
             custom_components/emoncms/coordinator.py
 
       - name: Create sync pull request
-        uses: peter-evans/create-pull-request@v7
+        uses: peter-evans/create-pull-request@v8
         with:
           branch: automation/sync-emoncms
           delete-branch: true

@@ -2,7 +2,7 @@ from pathlib import Path
 import shutil
 import subprocess
 
-UPSTREAM = Path("/tmp/home-assistant-core")
+UPSTREAM = Path(".upstream/home-assistant-core")
 SOURCE = UPSTREAM / "homeassistant/components/emoncms"
 DEST = Path("custom_components/emoncms")
 
