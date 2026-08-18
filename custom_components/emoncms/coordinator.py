@@ -31,7 +31,7 @@ class EmoncmsCoordinator(DataUpdateCoordinator[list[dict[str, Any]] | None]):
             LOGGER,
             config_entry=config_entry,
             name="emoncms_coordinator",
-            update_interval=timedelta(seconds=20),
+            update_interval=timedelta(seconds=10),
         )
         self.emoncms_client = emoncms_client
 
