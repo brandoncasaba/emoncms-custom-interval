@@ -14,7 +14,7 @@ coordinator = DEST / "coordinator.py"
 text = coordinator.read_text()
 
 old = "update_interval=timedelta(seconds=60)"
-new = "update_interval=timedelta(seconds=20)"
+new = "update_interval=timedelta(seconds=10)"
 
 if old not in text:
     raise RuntimeError(

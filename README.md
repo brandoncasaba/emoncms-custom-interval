@@ -1,13 +1,13 @@
-# Emoncms 20 Second Polling
+# Emoncms 10 Second Polling
 
-A custom [Home Assistant](https://www.home-assistant.io/) integration for importing [Emoncms](https://emoncms.org/) feeds as sensor entities. It is based on the standard Emoncms integration, with the polling interval set to **20 seconds**.
+A custom [Home Assistant](https://www.home-assistant.io/) integration for importing [Emoncms](https://emoncms.org/) feeds as sensor entities. It is based on the standard Emoncms integration, with the polling interval set to **10 seconds**.
 
 ## Features
 
 - Configures entirely through the Home Assistant UI.
 - Connects to local or hosted Emoncms instances using an API key.
 - Imports all available feeds or only the feeds you select.
-- Refreshes feed values every 20 seconds.
+- Refreshes feed values every 10 seconds.
 - Assigns Home Assistant device classes and units to common energy, power, voltage, current, temperature, pressure, flow, and other measurements.
 - Allows the selected feeds, server URL, and API key to be updated after setup.
 
@@ -17,7 +17,7 @@ A custom [Home Assistant](https://www.home-assistant.io/) integration for import
 
 1. Open HACS in Home Assistant and select **Integrations**.
 2. Open the menu, select **Custom repositories**, and add this repository as an **Integration**.
-3. Find and download **Emoncms 20 Second Polling**.
+3. Find and download **Emoncms 10 Second Polling**.
 4. Restart Home Assistant.
 
 ### Manual
@@ -41,4 +41,4 @@ The feed selection can be changed later from the integration's **Configure** dia
 
 ## Notes
 
-The 20-second polling interval is fixed in this version. Polling more frequently increases traffic and load on both Home Assistant and the Emoncms server.
+The 10-second polling interval is fixed in this version. Polling more frequently increases traffic and load on both Home Assistant and the Emoncms server.

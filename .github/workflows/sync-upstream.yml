@@ -41,7 +41,7 @@ jobs:
         run: |
           test -f custom_components/emoncms/manifest.json
           test -f custom_components/emoncms/coordinator.py
-          grep -q 'update_interval=timedelta(seconds=20)' \
+          grep -q 'update_interval=timedelta(seconds=10)' \
             custom_components/emoncms/coordinator.py
 
       - name: Create sync pull request
@@ -55,7 +55,7 @@ jobs:
             This PR synchronizes custom_components/emoncms
             with the upstream Home Assistant integration.
 
-            The local 20-second polling override is reapplied by
+            The local 10-second polling override is reapplied by
             scripts/sync_upstream.py.
 
             Review upstream changes before merging.
