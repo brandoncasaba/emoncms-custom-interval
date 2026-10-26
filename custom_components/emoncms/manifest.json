@@ -2,6 +2,7 @@
   "domain": "emoncms",
   "name": "Emoncms",
   "version": "1.0.0",
+  "categories": ["energy.meters_monitoring"],
   "codeowners": ["@borpin", "@alexandrecuer"],
   "config_flow": true,
   "documentation": "https://www.home-assistant.io/integrations/emoncms",
